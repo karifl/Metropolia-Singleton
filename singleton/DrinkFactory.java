@@ -11,9 +11,15 @@ public class DrinkFactory {
 		this.setName(name);
 	}
 	
-	public static synchronized DrinkFactory getInstance(Drink name) {
+	public static DrinkFactory getInstance(Drink name) {
 		if (INSTANCE == null) {
-			INSTANCE = new DrinkFactory(name);
+			synchronized (DrinkFactory.class)
+			{
+				if(INSTANCE == null) {
+					INSTANCE = new DrinkFactory(name);
+				}
+			
+			}
 		}
 		return INSTANCE;
 		
