@@ -27,11 +27,11 @@ public class DrinkFactory {
 	
 	public synchronized DrinkFactory getInstance() {
 		
-
+			System.out.println("********************************");
 			System.out.println("In this country we only serve: ");
 			System.out.println(this.name.getColaDrink());
 			System.out.println(this.name.getCitrusDrink());
-		
+			System.out.println("********************************");
 			return INSTANCE;
 		}
 
